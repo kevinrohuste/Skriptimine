@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Kontrollime, kas kasutajanimi anti argumendina
+if [ -z "$1" ]; then
+    echo "Viga: Kasutajanimi on puudu!"
+    echo "Kasutamine: sh $0 soovitav_kasutajanimi"
+    exit 1
+fi
+
+KASUTAJA="$1"
+
+# Loome kasutaja koos kodukataloogiga (-m)
+useradd -m "$KASUTAJA"
+echo "Kasutaja $KASUTAJA on edukalt lisatud."
