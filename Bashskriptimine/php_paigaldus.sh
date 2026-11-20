@@ -1,7 +1,6 @@
 #!/bin/bash
-# Skript PHP ja vajalike Apache/MySQL lisapakettide paigaldamiseks
 
-# Kontrollime, kas php on juba paigaldatud (tagastab 0 või 1)
+# Kontrollime, kas php on paigaldatud
 PHP=$(dpkg-query -W -f='${Status}' php 2>/dev/null | grep -c 'ok installed')
 
 # Kui php ei ole veel paigaldatud
