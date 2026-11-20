@@ -1,6 +1,10 @@
 #!/bin/bash
 
+
 # Kontrollime, kas php on paigaldatud
+=======
+# Kontrollib, kas php on paigaldatud
+ (Salvestatud ülejäänud skriptide muudatused)
 PHP=$(dpkg-query -W -f='${Status}' php 2>/dev/null | grep -c 'ok installed')
 
 # Kui php ei ole veel paigaldatud
