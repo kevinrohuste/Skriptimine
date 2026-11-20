@@ -10,10 +10,10 @@ export DEBIAN_FRONTEND=noninteractive
 apt update
 apt install -y gnupg ca-certificates debconf-utils wget
 
-# Määrame MySQL repositooriumi seaded
-echo "mysql-apt-config mysql-apt-config/select-server select mysql-8.0" | debconf-set-selections
-echo "mysql-apt-config mysql-apt-config/select-tools select Disabled"    | debconf-set-selections
-echo "mysql-apt-config mysql-apt-config/select-product select Ok"       | debconf-set-selections
+# Määrame MySQL repositooriumi seaded (Debian 13 toetab mysql-8.4-lts)
+echo "mysql-apt-config mysql-apt-config/select-server select mysql-8.4-lts" | debconf-set-selections
+echo "mysql-apt-config mysql-apt-config/select-tools select Disabled"       | debconf-set-selections
+echo "mysql-apt-config mysql-apt-config/select-product select Ok"          | debconf-set-selections
 
 # Määrame root-kasutaja parooli
 echo "mysql-community-server mysql-community-server/root-pass password qwerty"     | debconf-set-selections
@@ -42,5 +42,5 @@ password=qwerty
 EOF
 chmod 600 "$HOME/.my.cnf"
 
-echo "Valmis: MySQL 8.0 on paigaldatud. Root-parool: qwerty"
+echo "Valmis: MySQL 8.4 on paigaldatud. Root-parool: qwerty"
 mysql --version || true
